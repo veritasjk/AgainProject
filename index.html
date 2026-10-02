@@ -37,7 +37,11 @@
     }
     header .inner{width:min(1180px,calc(100% - 52px));margin:auto;display:flex;align-items:center;gap:24px}
     .brand-lockup{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:max-content}
-    .brand-lockup img{width:31px;height:31px;object-fit:contain;border-radius:7px}
+    .brand-symbol{position:relative;width:31px;height:31px;border:1px solid rgba(53,185,255,.55);border-radius:8px;background:linear-gradient(145deg,rgba(13,111,211,.24),rgba(53,185,255,.06));display:inline-block;overflow:hidden}
+    .brand-symbol i{position:absolute;left:6px;right:6px;height:2px;border-radius:999px;background:var(--accent);transform-origin:center}
+    .brand-symbol i:nth-child(1){top:8px;transform:rotate(26deg)}
+    .brand-symbol i:nth-child(2){top:14px;transform:rotate(-22deg);background:var(--brand)}
+    .brand-symbol i:nth-child(3){top:20px;transform:rotate(18deg);background:var(--accent-strong)}
     .brand-name{font-family:"Michroma","Segoe UI",sans-serif;font-size:13px;letter-spacing:.055em;color:var(--text)}
     .brand-name strong{font-weight:400;color:var(--accent)}
     nav{display:flex;gap:22px;margin-left:auto}
@@ -102,6 +106,13 @@
     .step:not(:last-child)::after{content:"→";position:absolute;right:-15px;top:44%;z-index:2;color:var(--accent);font-weight:700}
     .step .snum{font-family:"Michroma",sans-serif;color:var(--accent);font-size:10px}
     .step strong{display:block;font-size:13px;margin:10px 0 6px}.step small{color:var(--muted);font-size:11px}
+
+    .concept-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:30px}
+    .concept-card{margin:0;border:1px solid var(--border-soft);border-radius:14px;overflow:hidden;background:var(--panel);transition:.18s ease}
+    .concept-card:hover{transform:translateY(-2px);border-color:rgba(53,185,255,.5);box-shadow:0 14px 34px rgba(0,0,0,.24)}
+    .concept-card a{display:block;background:#0f1114}
+    .concept-card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+    .concept-card figcaption{padding:11px 13px;color:var(--muted);font-size:11px;border-top:1px solid var(--border-soft)}
     .status-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
     .status-list{display:grid;gap:10px;margin-top:10px}
     .status-row{display:grid;grid-template-columns:120px 1fr auto;gap:14px;align-items:center;border-bottom:1px solid var(--border-soft);padding:11px 0}
@@ -124,13 +135,13 @@
     body.lang-ko [data-lang="en"]{display:none!important}
     body.lang-en [data-lang="ko"]{display:none!important}
     @media(max-width:980px){
-      .hero-grid{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}
+      .hero-grid{grid-template-columns:1fr}.grid,.concept-grid{grid-template-columns:1fr 1fr}
       .arch{grid-template-columns:1fr}.arrow{transform:rotate(90deg);height:42px}
       .process{grid-template-columns:repeat(3,1fr)}.step:nth-child(3)::after{display:none}
     }
     @media(max-width:760px){
       header .inner{width:min(100% - 28px,1180px)}nav{display:none}.wrap{padding:0 18px}
-      .hero{padding:76px 0 54px}.grid,.status-grid,.process{grid-template-columns:1fr}
+      .hero{padding:76px 0 54px}.grid,.status-grid,.process,.concept-grid{grid-template-columns:1fr}
       .step:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-21px}
       .cta{display:block}.links{margin-top:18px}.midicom-wordmark{font-size:40px}
       h2{font-size:28px}.philosophy-card blockquote{font-size:23px}
@@ -142,12 +153,13 @@
 <header>
   <div class="inner">
     <a class="brand-lockup" href="#top" aria-label="AgainProject">
-      <img src="https://raw.githubusercontent.com/veritasjk/MIDICOM-Studio/develop/shared/qml/icons/brand/againproject-app-master.png" alt="AgainProject logo">
+      <span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span>
       <span class="brand-name">Again<strong>Project</strong></span>
     </a>
     <nav aria-label="Primary">
       <a href="#vision"><span data-lang="ko">철학</span><span data-lang="en">Vision</span></a>
       <a href="#architecture"><span data-lang="ko">아키텍처</span><span data-lang="en">Architecture</span></a>
+      <a href="#concept"><span data-lang="ko">목업</span><span data-lang="en">Concept</span></a>
       <a href="#process"><span data-lang="ko">개발 방식</span><span data-lang="en">Process</span></a>
       <a href="#status"><span data-lang="ko">현재 상태</span><span data-lang="en">Status</span></a>
     </nav>
@@ -230,6 +242,23 @@
             <div class="node cyan"><strong>Visual Runtime</strong><small>Qt Quick 3D · semantic reaction · shared UI</small></div>
           </div>
         </div>
+      </div>
+    </section>
+
+
+    <section id="concept">
+      <div class="section-kicker">Visual Concept Studies</div>
+      <h2 data-lang="ko">초기 시각 목업과 제품 방향</h2>
+      <h2 data-lang="en">Early visual studies and product direction</h2>
+      <p class="section-intro" data-lang="ko">초기 설계 과정에서 제작한 시각 목업입니다. 현재 구현 화면을 의미하지는 않지만, MIDICOM의 정보 밀도, 공간감, 중심 오브젝트와 음악 워크스테이션의 시각적 방향을 정의한 중요한 디자인 자료로 유지합니다.</p>
+      <p class="section-intro" data-lang="en">These early visual studies are not screenshots of the current implementation. They are retained as important design references that shaped MIDICOM's information density, spatial language, central visual object and workstation direction.</p>
+      <div class="concept-grid">
+        <figure class="concept-card"><a href="assets/images/concept/againgm-concept-01.png" target="_blank" rel="noopener"><img src="assets/images/concept/againgm-concept-01.png" alt="MIDICOM early concept study 01"></a><figcaption data-lang="ko">초기 목업 01</figcaption><figcaption data-lang="en">Early Concept 01</figcaption></figure>
+        <figure class="concept-card"><a href="assets/images/concept/againgm-concept-02.png" target="_blank" rel="noopener"><img src="assets/images/concept/againgm-concept-02.png" alt="MIDICOM early concept study 02"></a><figcaption data-lang="ko">초기 목업 02</figcaption><figcaption data-lang="en">Early Concept 02</figcaption></figure>
+        <figure class="concept-card"><a href="assets/images/concept/againgm-concept-03.png" target="_blank" rel="noopener"><img src="assets/images/concept/againgm-concept-03.png" alt="MIDICOM early concept study 03"></a><figcaption data-lang="ko">초기 목업 03</figcaption><figcaption data-lang="en">Early Concept 03</figcaption></figure>
+        <figure class="concept-card"><a href="assets/images/concept/againgm-concept-04.png" target="_blank" rel="noopener"><img src="assets/images/concept/againgm-concept-04.png" alt="MIDICOM early concept study 04"></a><figcaption data-lang="ko">초기 목업 04</figcaption><figcaption data-lang="en">Early Concept 04</figcaption></figure>
+        <figure class="concept-card"><a href="assets/images/concept/againgm-concept-05.png" target="_blank" rel="noopener"><img src="assets/images/concept/againgm-concept-05.png" alt="MIDICOM early concept study 05"></a><figcaption data-lang="ko">초기 목업 05</figcaption><figcaption data-lang="en">Early Concept 05</figcaption></figure>
+        <figure class="concept-card"><a href="assets/images/concept/againgm-concept-06.png" target="_blank" rel="noopener"><img src="assets/images/concept/againgm-concept-06.png" alt="MIDICOM early concept study 06"></a><figcaption data-lang="ko">초기 목업 06</figcaption><figcaption data-lang="en">Early Concept 06</figcaption></figure>
       </div>
     </section>
 
