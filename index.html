@@ -37,11 +37,7 @@
     }
     header .inner{width:min(1180px,calc(100% - 52px));margin:auto;display:flex;align-items:center;gap:24px}
     .brand-lockup{display:flex;align-items:center;gap:11px;text-decoration:none;min-width:max-content}
-    .brand-symbol{position:relative;width:31px;height:31px;border:1px solid rgba(53,185,255,.55);border-radius:8px;background:linear-gradient(145deg,rgba(13,111,211,.24),rgba(53,185,255,.06));display:inline-block;overflow:hidden}
-    .brand-symbol i{position:absolute;left:6px;right:6px;height:2px;border-radius:999px;background:var(--accent);transform-origin:center}
-    .brand-symbol i:nth-child(1){top:8px;transform:rotate(26deg)}
-    .brand-symbol i:nth-child(2){top:14px;transform:rotate(-22deg);background:var(--brand)}
-    .brand-symbol i:nth-child(3){top:20px;transform:rotate(18deg);background:var(--accent-strong)}
+    .brand-logo{width:31px;height:31px;display:block;object-fit:contain;border-radius:7px}
     .brand-name{font-family:"Michroma","Segoe UI",sans-serif;font-size:13px;letter-spacing:.055em;color:var(--text)}
     .brand-name strong{font-weight:400;color:var(--text)}
     nav{display:flex;gap:22px;margin-left:auto}
@@ -153,7 +149,7 @@
 <header>
   <div class="inner">
     <a class="brand-lockup" href="#top" aria-label="AgainProject">
-      <span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i></span>
+      <img class="brand-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAACQ0lEQVR42t2TTWtTURCGnzknzcdNk7apBq2fpMW2lNaNiIjgx0Zw6W9w5a/wJ7kSXKoIBTdSlCoKYpHWtqaaNklv7j1nxkWrNrrtytkNAw/M+8zIieZp4xjKcUz1H4MKQ504EI/hQAQwQJDD8ZAVUwQDDYAdAYnDCqPE+gzBjWLiwAwRQwQEUANTw8wQCxSsT6H7Ccm7f0AmnlCbJtUy5ClmCqYgnqQxSaVSodf+xn5/DywCkDlPkpynsPv+aEZCLmUsZGjMsDxFs5SRsUlad+9z+8FDWotXcOLQPEXzfTTfZxALgPwBGYJGw2J+AMkHuGKZ6qVrbLsFVroNxq7eoHHqNMQMCwMs5JgqNmzNMA1oyNCQYyYUm3NQWmLn+TJfnj5Bk0kqZy5gBhYDaMA0/GvNYsB5T3VqDsZmqTeXODk7xSbv+L6yzOqzU8TsHL6YEHp9TAQ0gg2BDNOIK0+QzN8j268z4mr47hvqzSpx+ia7ax5fmkJ8A3TzwLTpX/oNsEhUT7czSrbeZo911l4+JqkKhcYSPpkg9koYM4hfx+j9NuiTau3RL/0DP45lGTIyTunCEtJ/zWDtBVlni3T7A0iHYrOFK7Yg7qLZFuKgZHvDYaMKmuLLHSotIbQ3wC9A6TL4Jnl7m7CbkizOc/HOLUq12sGtDYV9uBoIhaJSqVVoSwtXVnxzGn9yGpeMMdI4y7nrNWQlx3F4tEMZAWIBDYH+x1dk7a/EH5tYtgPba2h/Fak0iVt1Pq+nhI23DHqdw5+En3sRHSYc9qJjAAAAAElFTkSuQmCC" alt="AgainProject logo">
       <span class="brand-name">Again<strong>Project</strong></span>
     </a>
     <nav aria-label="Primary">
