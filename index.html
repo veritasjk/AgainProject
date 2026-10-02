@@ -121,11 +121,8 @@
     .button{display:inline-flex;align-items:center;text-decoration:none;border-radius:8px;padding:11px 14px;font-size:12px;font-weight:700;border:1px solid var(--border)}
     .button.primary{background:var(--brand-deep);border-color:var(--brand);color:white}.button.secondary{background:var(--panel);color:var(--text-2)}
     footer{padding:38px 0 54px;color:var(--muted);font-size:12px;border-top:1px solid rgba(70,80,90,.35)}
-    body [data-lang]{display:none}
-    html[data-lang="ko"] [data-lang="ko"],html[data-lang="en"] [data-lang="en"]{display:initial}
-    html[data-lang="ko"] div[data-lang="ko"],html[data-lang="en"] div[data-lang="en"],
-    html[data-lang="ko"] section[data-lang="ko"],html[data-lang="en"] section[data-lang="en"],
-    html[data-lang="ko"] p[data-lang="ko"],html[data-lang="en"] p[data-lang="en"]{display:block}
+    body.lang-ko [data-lang="en"]{display:none!important}
+    body.lang-en [data-lang="ko"]{display:none!important}
     @media(max-width:980px){
       .hero-grid{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}
       .arch{grid-template-columns:1fr}.arrow{transform:rotate(90deg);height:42px}
@@ -140,17 +137,8 @@
       .status-row{grid-template-columns:1fr auto}.status-row span{grid-column:1 / -1}
     }
   </style>
-  <script>
-    (function(){
-      var saved=localStorage.getItem("againproject-lang");
-      var detected=(navigator.language||"en").toLowerCase().startsWith("ko")?"ko":"en";
-      var lang=saved==="ko"||saved==="en"?saved:detected;
-      document.documentElement.setAttribute("data-lang",lang);
-      document.documentElement.setAttribute("lang",lang);
-    })();
-  </script>
 </head>
-<body>
+<body class="lang-ko">
 <header>
   <div class="inner">
     <a class="brand-lockup" href="#top" aria-label="AgainProject">
@@ -321,7 +309,8 @@
 <script>
 (function(){
   function applyLang(lang){
-    document.documentElement.setAttribute("data-lang",lang);
+    document.body.classList.toggle("lang-ko",lang==="ko");
+    document.body.classList.toggle("lang-en",lang==="en");
     document.documentElement.setAttribute("lang",lang);
     localStorage.setItem("againproject-lang",lang);
     document.querySelectorAll("[data-set-lang]").forEach(function(btn){
